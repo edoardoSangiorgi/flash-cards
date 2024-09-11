@@ -1,2 +1,2 @@
-# flash-cards
-A simple flashcard applicattion
+# Flashcards
+A simple flashcard application
