@@ -8,25 +8,25 @@ class Question:
 
         Each question has:
         - just a subject
-        - just an argument
+        - just an topic
 
         Specfically:
-        - each subject has one or more arguments
-        - each argument has one or more questions
+        - each subject has one or more topics
+        - each topic has one or more questions
     '''
 
     def __init__(
         self,
         id,
         subject='',
-        argument='',
+        topic='',
         text='',
         ans='',
         deleted=False,
     ):
         self.id = id
         self.subject = subject
-        self.argument = argument
+        self.topic = topic
         self.text = text
         self.ans = ans
         self.deleted = deleted
@@ -39,9 +39,9 @@ class Question:
             Output:
                     <string>    :   key,value-like
                                     ex:
-                                    Question(id=1, subject=Math, argument=Functions, deleted=False)
+                                    Question(id=1, subject=Math, topic=Functions, deleted=False)
         '''
-        return f"Question(id={self.id}, subject='{self.subject}', argument='{self.argument}', deleted={self.deleted})"
+        return f"Question(id={self.id}, subject='{self.subject}', topic='{self.topic}', deleted={self.deleted})"
 
 
 
@@ -117,6 +117,8 @@ class QuestionList(list):
 
     def get_by_subject(self, subject):
         '''
+            **IN FASE DI VALUTAZIONE - NON USARE**
+
             returns all the question of a subject
 
             Input:
@@ -125,26 +127,28 @@ class QuestionList(list):
 
             Output:
                     list<Question>  :   the list of the question that belong to a subject
-                                        the argument of the single questions could be different
+                                        the topic of the single questions could be different
         '''
 
         return [question for question in self if question.subject == subject]
     
 
-    def get_by_argument(self, argument):
+    def get_by_topic(self, topic):
         '''
-            returns all the question of an argument
+            **IN FASE DI VALUTAZIONE - NON USARE**
+
+            returns all the question of an topic
 
             Input:
-                    argument         :   the argument of the question
+                    topic         :   the topic of the question
                     str
 
             Output:
-                    <QuestionList>  :   the list of the question that belong to an argument
+                    <QuestionList>  :   the list of the question that belong to an topic
                                         the subject of the questions will be the same
         '''
 
-        return [question for question in self if question.argument == argument]
+        return [question for question in self if question.topic == topic]
 
 
 
