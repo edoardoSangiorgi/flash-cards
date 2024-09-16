@@ -1,4 +1,5 @@
 from constants import DATA_PATH
+from entities.question import Question, QuestionList
 import os
 
 ## This is the data file for Data queries
@@ -17,7 +18,7 @@ create_dir
 # --- C r e a t e  F i l e ----------------------------------------------
 def create_file(filename, path=''):
     '''
-        create a file .txt about an theme
+        create a file .txt about a theme
 
         Input:
                 filename    :   the name of the theme
@@ -44,4 +45,9 @@ def create_dir(dirname):
     os.makedirs(DATA_PATH + dirname, exist_ok=True) 
 
 
-# --- U p d a t e ---
+# --- U p d a t e  Q u e s t i o n  I n  F i l e --------------------
+def update_question(updated_question, question_id):
+    '''
+        update a 
+    '''
+    pass
