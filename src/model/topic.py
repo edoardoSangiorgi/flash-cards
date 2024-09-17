@@ -12,13 +12,13 @@ class Topic():
         self.path = self.subject + '/' + self.name + '.txt'
 
         if os.path.exists(self.path) and os.path.isfile(self.path):
-            self.all_questions = self.read_all()
+            self.all_questions = self.get_all_questions()
         else:
             raise ValueError('the passsed resource does not exist.')
 
 
     # --- R e a d  A l l  Q u e s t i o n s ---------------------------------------------------------------------------
-    def read_all(self):
+    def get_all_questions(self):
         '''
             read all the question of an topic
 
@@ -58,7 +58,12 @@ class Topic():
 
         self.all_questions.append(new_question)
 
-        
+
+    # --- S h u f f l e -----------------------------------------------------------------------------------------------        
+    def shuffle_all(self):
+        self.all_questions.shuffle()
+        return self.all_questions
+
 
     # --- P a r s e --------------------------------------------------------------------------------------------------
     def parse(self, content):
@@ -105,12 +110,12 @@ class Topic():
 
         return question_list
     
-
+    # --- R e s e t  Q u e s t i o n s  O r d e r --------------------------------------------------------------------
     def reset_questions_order(self):
         '''
             reset the questions order
         '''
-        self.all_questions = self.read_all()
+        self.all_questions = self.get_all_questions()
 
 
     ### C L A S S  M E T H O D S ######################################################################################
@@ -127,5 +132,8 @@ class Topic():
                     str
         '''
 
+        if not(path.endswith('/')):
+            path = path + '/'
+            
         with open(path + topic_name, "w") as file:
             pass 

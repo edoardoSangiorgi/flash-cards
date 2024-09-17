@@ -43,7 +43,7 @@ class Subject():
                     str
             
             Output:
-                    list<str>   :   the list of all the argumnent in a subject
+                    list<str>   :   the list of all the topic names in a subject
         '''
 
         file_list = os.listdir(self.name)
@@ -70,8 +70,9 @@ class Subject():
     def shuffle_all(self):
 
         all_questions = self.get_all_questions()
-        
-        return all_questions.shuffle()
+        all_questions.shuffle()
+
+        return all_questions
     
 
 
@@ -92,9 +93,17 @@ class Subject():
         os.makedirs(DATA_PATH + name, exist_ok=True) 
 
 
+    # --- U p d a t e ---------------------------------------------------------------------------------------------------
+    def update_subject(old_name, new_name):
+        '''
+            update the subject name directory
+        '''
+        os.rename(old_name, new_name)
+
+
     # --- D e l e t e -----------------------------------------------------------------------------------------------------
     def delete_subject(name):
         '''
             sets the subject as deleted
         '''
-        os.rename(name, name + '-deleted')
+        Subject.update_subject(name, name + 'deleted')
