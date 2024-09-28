@@ -41,7 +41,7 @@ class Topic():
     
 
     # --- A d d  Q u e s t i o n -------------------------------------------------------------------------------------
-    def append(self, text, ans):
+    def add_question(self, text, ans):
 
         self.reset_questions_order()
         last_question = self.all_questions[-1]
@@ -137,3 +137,14 @@ class Topic():
             
         with open(path + topic_name, "w") as file:
             pass 
+
+    
+    def update_topic(subject_name, old_name, new_name):
+
+        if not(subject_name.endswith('/')):
+            path = subject_name + '/'
+
+        old_topic_name = path + old_name
+        new_topic_name = path + new_name
+
+        os.rename(old_topic_name, new_topic_name)

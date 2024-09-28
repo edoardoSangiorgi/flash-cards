@@ -99,11 +99,3 @@ class Subject():
             update the subject name directory
         '''
         os.rename(old_name, new_name)
-
-
-    # --- D e l e t e -----------------------------------------------------------------------------------------------------
-    def delete_subject(name):
-        '''
-            sets the subject as deleted
-        '''
-        Subject.update_subject(name, name + 'deleted')

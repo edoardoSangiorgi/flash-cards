@@ -49,8 +49,12 @@ class Question:
 ##### Q U E S T I O N  L I S T  C L A S S ###############################################################################
 class QuestionList(list):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, *args):
+
+        if not all(isinstance(arg, Question) for arg in args):
+            raise ValueError('All the elements must be a Question istance')
+        
+        super().__init__(args)
         
 
 

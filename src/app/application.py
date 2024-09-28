@@ -38,17 +38,15 @@ def topic_flashcard(subject_name, topic_name):
 ### C R U D  S U B J E C T #######################################################################################
 
 def add_subject(subject_name):
-    
     Subject.create_subject(subject_name)
 
 
 def remove_subject(subject_name):
     
-    Subject.delete_subject(subject_name)
+    Subject.update_subject(subject_name, subject_name + '-deleted')
 
 
 def update_subject(old_name, new_name):
-    
     Subject.update_subject(old_name, new_name)
 
 
@@ -56,23 +54,24 @@ def update_subject(old_name, new_name):
 ### C R U D  T O P I C ###########################################################################################
 
 def add_topic(subject_name, topic_name):
-    
     Topic.create_topic(topic_name, subject_name)
 
 
 def remove_topic(subject_name, topic_name):
-    pass
+    Topic.update_topic(subject_name, topic_name, topic_name + '-deleted')
 
 
-def update_topic(subject_name, topic_name):
-    pass
+def update_topic(subject_name, old_topic_name, new_topic_name):
+    Topic.update_topic(subject_name, old_topic_name, new_topic_name)
 
 
 
 ### C R U D  Q U E S T I O N S ###################################################################################
 
 def add_question(subject_name, topic_name, text, ans):
-    pass
+    
+    topic = Topic(topic_name, subject_name)
+    topic.add_question(text, ans)
 
 
 def remove_question(subject_name, topic_name, text, ans):
