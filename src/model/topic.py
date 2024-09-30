@@ -1,6 +1,5 @@
-from question import Question, QuestionList
+from model.question import Question, QuestionList
 import os
-import random
 
 
 class Topic():

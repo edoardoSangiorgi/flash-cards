@@ -1,6 +1,6 @@
-from topic import Topic
-from question import QuestionList
-from constants import DATA_PATH
+from model.topic import Topic
+from model.question import QuestionList
+from model.constants import DATA_PATH
 import os
 
 class Subject():
@@ -99,3 +99,51 @@ class Subject():
             update the subject name directory
         '''
         os.rename(old_name, new_name)
+
+
+    # --- R e a d -------------------------------------------------------------------------------------------------
+    def get_all():
+        '''
+            read all the subject
+
+            Output:
+                    subject_list    :   the list which contains the name of all the subject
+                    list
+        '''
+
+        dirs = [dir for dir in os.listdir(DATA_PATH) if os.path.isdir(os.path.join(DATA_PATH, dir))]
+        return Subject.get_available_subject(dirs)
+        
+    
+    # --- Utils ---------------------------------------------------------------------------------------------------
+    def get_available_subject(subject_list):
+        '''
+            returs all the available subjects and delete from the list
+            the ones which are deleted
+
+            Input:
+                    subject_list    :   the list of the subject
+                    list[str]
+
+            Ouput:
+                    new_list        :   the list of the available subjects
+                    list[str]
+        '''
+        available_subject = []
+        for subject in subject_list:
+            if not(Subject.is_deleted(subject)):
+                available_subject.append(subject)
+
+        return available_subject
+
+
+    def is_deleted(subject):
+        '''
+            check if the subject is deleted
+
+            Input:
+                    subject     :       the name of the subject
+                    str
+        '''
+        if subject.endswith('-deleted'): return True
+        else: return False

@@ -39,17 +39,21 @@ def topic_flashcard(subject_name, topic_name):
 
 def add_subject(subject_name):
     Subject.create_subject(subject_name)
+    return get_all_subject()
 
 
 def remove_subject(subject_name):
-    
     Subject.update_subject(subject_name, subject_name + '-deleted')
+    return get_all_subject()
 
 
 def update_subject(old_name, new_name):
     Subject.update_subject(old_name, new_name)
+    return get_all_subject()
 
 
+def get_all_subject():
+    return Subject.get_all()
 
 ### C R U D  T O P I C ###########################################################################################
 
