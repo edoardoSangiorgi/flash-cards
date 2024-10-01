@@ -15,7 +15,7 @@ class SubjectFrame(ctk.CTkFrame):
         top_bar.pack(fill="x", side="top")
 
         # -- title of the page --
-        title_label = ctk.CTkLabel(top_bar, text="Materie", font=(self.font_title, 50))
+        title_label = ctk.CTkLabel(top_bar, text="Le Tue Materie", font=(self.font_title, 50))
         title_label.pack(side="left", padx=10, pady=10)
 
         # -- button '+' --
