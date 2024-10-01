@@ -1,4 +1,5 @@
 from model.question import Question, QuestionList
+from model.constants import DATA_PATH
 import os
 
 
@@ -8,7 +9,7 @@ class Topic():
         
         self.name = name
         self.subject = subject
-        self.path = self.subject + '/' + self.name + '.txt'
+        self.path = DATA_PATH + self.subject + '/' + self.name + '.txt'
 
         if os.path.exists(self.path) and os.path.isfile(self.path):
             self.all_questions = self.get_all_questions()
@@ -35,8 +36,11 @@ class Topic():
 
         with open(self.path, 'r') as file:
             content = file.read()
-        
-        return self.parse(content)
+
+        if content != '':
+            return self.parse(content)
+        else:
+            return None
     
 
     # --- A d d  Q u e s t i o n -------------------------------------------------------------------------------------
@@ -119,22 +123,19 @@ class Topic():
 
     ### C L A S S  M E T H O D S ######################################################################################
 
-    def create_topic(topic_name, path=''):
+    def create_topic(subject_name, topic_name):
         '''
             create a file .txt (topic)
 
             Input:
-                    filename    :   the name of the topic
+                    subject_name    :   the name of the subject
                     str
 
-                    path        :   the path (subject) of the topic
+                    topic_name      :   the name of the topic
                     str
         '''
-
-        if not(path.endswith('/')):
-            path = path + '/'
-            
-        with open(path + topic_name, "w") as file:
+        path = DATA_PATH + subject_name + '/' + topic_name + '.txt'
+        with open(path, "w") as file:
             pass 
 
     

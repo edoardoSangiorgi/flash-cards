@@ -8,7 +8,8 @@ class Subject():
     def __init__(self, name):
         
         self.name = name
-        if os.path.exists(self.name):
+        self.name_path = DATA_PATH + name
+        if os.path.exists(self.name_path):
             self.topics_list = self.get_all_topics()
             self.all_topics = self.read_all_topics()
         else:
@@ -46,12 +47,12 @@ class Subject():
                     list<str>   :   the list of all the topic names in a subject
         '''
 
-        file_list = os.listdir(self.name)
+        file_list = os.listdir(self.name_path)
         topics_list = []
 
         for file in file_list:
             file = file.split('.')
-            topics_list.append[file[0]]
+            topics_list.append(file[0])
 
         return topics_list
     

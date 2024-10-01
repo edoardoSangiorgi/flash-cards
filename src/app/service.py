@@ -58,7 +58,7 @@ def get_all_subject():
 ### C R U D  T O P I C ###########################################################################################
 
 def add_topic(subject_name, topic_name):
-    Topic.create_topic(topic_name, subject_name)
+    Topic.create_topic(subject_name, topic_name)
 
 
 def remove_topic(subject_name, topic_name):

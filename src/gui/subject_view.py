@@ -55,14 +55,14 @@ class SubjectFrame(ctk.CTkFrame):
         new_subject = ctk.CTkToplevel()
         new_subject.title("Nuova Materia")
 
-        ctk.CTkLabel(new_subject, text="Nome della Materia", font=("Red Hat Display", 25)).pack(pady=10)
+        ctk.CTkLabel(new_subject, text="Nome della Materia", font=(self.font_text, 25)).pack(pady=10)
 
         # -- input form --
         subject_name_entry = ctk.CTkEntry(new_subject, width=300)
         subject_name_entry.pack(pady=10)
 
         # -- confirm button --
-        add_button = ctk.CTkButton(new_subject, text="Aggiungi", command=lambda: self.confirm_add(subject_name_entry.get(), new_subject))
+        add_button = ctk.CTkButton(new_subject, text="Aggiungi", font=(self.font_text, 20), command=lambda: self.confirm_add(subject_name_entry.get(), new_subject))
         add_button.pack(pady=10)
 
 
