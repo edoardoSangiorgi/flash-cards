@@ -1,6 +1,6 @@
 from model.topic import Topic
 from model.question import QuestionList
-from model.constants import DATA_PATH
+from model.utils import DATA_PATH
 import os
 
 class Subject():
@@ -70,10 +70,8 @@ class Subject():
     # --- S h u f f l e  A l l  Q u e s t i o n s  -----------------------------------------------------------------------
     def shuffle_all(self):
 
-        all_questions = self.get_all_questions()
-        all_questions.shuffle()
-
-        return all_questions
+        questions = self.get_all_questions()
+        return questions.shuffle()
     
 
 

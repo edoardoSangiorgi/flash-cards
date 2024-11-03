@@ -1,5 +1,6 @@
 from model.subject import Subject
 from model.topic import Topic
+import model.utils as utils
 
 
 
@@ -55,6 +56,7 @@ def update_subject(old_name, new_name):
 def get_all_subject():
     return Subject.get_all()
 
+
 ### C R U D  T O P I C ###########################################################################################
 
 def add_topic(subject_name, topic_name):
@@ -84,3 +86,17 @@ def remove_question(subject_name, topic_name, text, ans):
 
 def update_questions(subject_name, topic_name, text, ans):
     pass
+
+
+### F L A S H C A R D S ######################################################################################
+
+def flashcard(subject_name, topic_name=None):
+    
+    if topic_name is not None:
+        deck = Topic(topic_name, subject_name)
+    else:
+        deck = Subject(subject_name)
+
+    return deck.shuffle_all()
+
+    

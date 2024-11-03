@@ -1,5 +1,5 @@
 from model.question import Question, QuestionList
-from model.constants import DATA_PATH
+from model.utils import DATA_PATH
 import os
 
 
@@ -23,7 +23,7 @@ class Topic():
             read all the question of an topic
 
             Input:
-                    topic            :   the topic of the questions
+                    topic               :   the topic of the questions
                     str
 
                     subject             :   the subject of the questions
@@ -64,8 +64,14 @@ class Topic():
 
     # --- S h u f f l e -----------------------------------------------------------------------------------------------        
     def shuffle_all(self):
-        self.all_questions.shuffle()
-        return self.all_questions
+        '''
+            returns a shuffled copy of the questions list
+
+            Output: QuestionList
+        '''
+        questions = self.all_questions
+        return questions.shuffle()
+
 
 
     # --- P a r s e --------------------------------------------------------------------------------------------------
@@ -119,6 +125,7 @@ class Topic():
             reset the questions order
         '''
         self.all_questions = self.get_all_questions()
+
 
 
     ### C L A S S  M E T H O D S ######################################################################################
