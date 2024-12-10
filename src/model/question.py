@@ -10,7 +10,7 @@ class Question:
         - just a subject
         - just an topic
 
-        Specfically:
+        In specific:
         - each subject has one or more topics
         - each topic has one or more questions
     '''
@@ -45,14 +45,13 @@ class Question:
 
 
 
-
 ##### Q U E S T I O N  L I S T  C L A S S ###############################################################################
 class QuestionList(list):
 
     def __init__(self, *args):
 
         if not all(isinstance(arg, Question) for arg in args):
-            raise ValueError('All the elements must be a Question istance')
+            raise ValueError('All the elements must be a Question instance')
         
         super().__init__(args)
         
@@ -120,9 +119,8 @@ class QuestionList(list):
 
 
     def get_by_subject(self, subject):
+        # ! DO NOT USE CURRENTLY
         '''
-            **IN FASE DI VALUTAZIONE - NON USARE**
-
             returns all the question of a subject
 
             Input:
@@ -138,9 +136,8 @@ class QuestionList(list):
     
 
     def get_by_topic(self, topic):
+        # ! DO NOT USE CURRENTLY
         '''
-            **IN FASE DI VALUTAZIONE - NON USARE**
-
             returns all the question of an topic
 
             Input:
